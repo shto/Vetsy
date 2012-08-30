@@ -20,4 +20,17 @@
 @synthesize venue;
 @synthesize rsvp_status;
 
+- (id)initFromJSONDictionary:(NSDictionary *)jsonDict
+{
+    self = [super init];
+    if (self) {
+        for (NSString *key in jsonDict) {
+            if ([self respondsToSelector:NSSelectorFromString(key)]) {
+                [self setValue:[jsonDict objectForKey:key] forKey:key];
+            }
+        }
+    }
+    return self;
+}
+
 @end

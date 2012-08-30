@@ -10,11 +10,12 @@
 
 @implementation FEEventLoader
 
-- (id)initWithEventsURL:(NSString *)url
+- (id)initWithEventsURL:(NSString *)url andDelegate:(id<FEEventLoaderDelegate>)delegate
 {
     self = [super init];
     if (self) {
         eventsURL = url;
+        waitingDelegate = delegate;
     }
     return self;
 }
@@ -31,16 +32,20 @@
         // call delegate
         [waitingDelegate failWithError:nil];
     }
-    
-    [urlConnection start];
 }
 
 // calculate events from data
 - (NSArray *)events {
-    NSMutableArray *returnedArray = [NSMutableArray array];    
+    NSMutableArray *returnedArray = [NSMutableArray array];        
     NSDictionary *dictionary = [receivedData yajl_JSON];
-    
     NSLog(@"events dictionary: %@", dictionary);
+
+    NSArray *allEvents = [dictionary objectForKey:@"data"];
+    for (NSDictionary *eventDict in allEvents) {
+        Event *event = [[Event alloc] initFromJSONDictionary:eventDict];
+        [returnedArray addObject:event];
+        [event release];
+    }
     
     return returnedArray;
 }
@@ -49,6 +54,7 @@
 
 // failed with error
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Failed!");
     [waitingDelegate failWithError:error];
 }
 

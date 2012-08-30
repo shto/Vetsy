@@ -14,4 +14,7 @@
     
 }
 
+@property (nonatomic, assign) IBOutlet UIView *viewLoadingEvents;
+@property (nonatomic, assign) IBOutlet UILabel *labelNumberOfEvents;
+
 @end

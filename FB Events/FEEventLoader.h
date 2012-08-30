@@ -30,7 +30,7 @@
     id<FEEventLoaderDelegate> waitingDelegate;
 }
 
-- (id)initWithEventsURL:(NSString *)url;
+- (id)initWithEventsURL:(NSString *)url andDelegate:(id<FEEventLoaderDelegate>)delegate;
 - (void)startGettingEvents;
 
 @end

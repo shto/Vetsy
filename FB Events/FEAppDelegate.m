@@ -98,7 +98,7 @@
     
     [self.window makeKeyAndVisible];
     
-    if (!sharedSession.isOpen) {
+    if (!sharedSession.accessToken) {
         // show login screen
         FELoginViewController *loginViewController = [[FELoginViewController alloc] initWithNibName:@"FELoginViewController" 
                                                                                              bundle:nil];

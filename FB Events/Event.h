@@ -24,4 +24,6 @@
 @property (nonatomic, retain) NSString *updated_time;
 @property (nonatomic, retain) NSString *rsvp_status;
 
+- (id)initFromJSONDictionary:(NSDictionary *)jsonDict;
+
 @end
