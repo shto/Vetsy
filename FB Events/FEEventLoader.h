@@ -1,6 +1,6 @@
 //
 //  FEEventLoader.h
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <YAJLiOS/YAJL.h>
 #import "Event.h"
+#import "FEProxy.h"
 
 @protocol FEEventLoaderDelegate <NSObject>
 @required
@@ -19,14 +20,9 @@
 
 @end
 
-@interface FEEventLoader : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+@interface FEEventLoader : NSObject <FEProxyProtocol> {
     NSString *eventsURL;
-    
-    NSURLConnection *urlConnection;
-    NSURLRequest *urlRequest;
-    NSURLResponse *urlResponse;
-    NSMutableData *receivedData;
-    
+    FEProxy *proxy;
     id<FEEventLoaderDelegate> waitingDelegate;
 }
 

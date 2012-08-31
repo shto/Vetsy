@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7533FF6C15F0E62300F94F49 /* FEProxy.m */; };
 		75B3923115EFDE1600823962 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923015EFDE1600823962 /* UIKit.framework */; };
 		75B3923315EFDE1600823962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923215EFDE1600823962 /* Foundation.framework */; };
 		75B3923515EFDE1600823962 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923415EFDE1600823962 /* CoreGraphics.framework */; };
@@ -28,14 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		75B3922C15EFDE1600823962 /* FB Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FB Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7533FF6B15F0E62300F94F49 /* FEProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEProxy.h; sourceTree = "<group>"; };
+		7533FF6C15F0E62300F94F49 /* FEProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEProxy.m; sourceTree = "<group>"; };
+		75B3922C15EFDE1600823962 /* Vetsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vetsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B3923015EFDE1600823962 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75B3923215EFDE1600823962 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75B3923415EFDE1600823962 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		75B3923815EFDE1600823962 /* FB Events-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FB Events-Info.plist"; sourceTree = "<group>"; };
+		75B3923815EFDE1600823962 /* Vetsy-Info.plist */ = {isa = PBXFileReference; path = "Vetsy-Info.plist"; sourceTree = "<group>"; };
 		75B3923A15EFDE1600823962 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75B3923C15EFDE1600823962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		75B3923E15EFDE1600823962 /* FB Events-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FB Events-Prefix.pch"; sourceTree = "<group>"; };
+		75B3923E15EFDE1600823962 /* Vetsy-Prefix.pch */ = {isa = PBXFileReference; path = "Vetsy-Prefix.pch"; sourceTree = "<group>"; };
 		75B3923F15EFDE1600823962 /* FEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEAppDelegate.h; sourceTree = "<group>"; };
 		75B3924015EFDE1600823962 /* FEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEAppDelegate.m; sourceTree = "<group>"; };
 		75B3924215EFDE1600823962 /* FELoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FELoginViewController.h; sourceTree = "<group>"; };
@@ -55,7 +58,7 @@
 		75B3926415EFF48700823962 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		75B3926515EFF48700823962 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		75B3926B15EFF75A00823962 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJLiOS.framework; sourceTree = "<group>"; };
-		75BAD2DA15F09A2E00F226F1 /* FacebookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FacebookObject.h; sourceTree = "<group>"; };
+		75BAD2DA15F09A2E00F226F1 /* FacebookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookObject.h; sourceTree = "<group>"; };
 		75BAD2DB15F09A2E00F226F1 /* FacebookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +90,7 @@
 		75B3922D15EFDE1600823962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75B3922C15EFDE1600823962 /* FB Events.app */,
+				75B3922C15EFDE1600823962 /* Vetsy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +125,8 @@
 				75B3925A15EFF18900823962 /* FEMainViewController.xib */,
 				75B3925D15EFF40900823962 /* FEEventLoader.h */,
 				75B3925E15EFF40900823962 /* FEEventLoader.m */,
+				7533FF6B15F0E62300F94F49 /* FEProxy.h */,
+				7533FF6C15F0E62300F94F49 /* FEProxy.m */,
 			);
 			path = "FB Events";
 			sourceTree = "<group>";
@@ -129,10 +134,10 @@
 		75B3923715EFDE1600823962 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				75B3923815EFDE1600823962 /* FB Events-Info.plist */,
+				75B3923815EFDE1600823962 /* Vetsy-Info.plist */,
 				75B3923915EFDE1600823962 /* InfoPlist.strings */,
 				75B3923C15EFDE1600823962 /* main.m */,
-				75B3923E15EFDE1600823962 /* FB Events-Prefix.pch */,
+				75B3923E15EFDE1600823962 /* Vetsy-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		75B3922B15EFDE1600823962 /* FB Events */ = {
+		75B3922B15EFDE1600823962 /* Vetsy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75B3924A15EFDE1600823962 /* Build configuration list for PBXNativeTarget "FB Events" */;
+			buildConfigurationList = 75B3924A15EFDE1600823962 /* Build configuration list for PBXNativeTarget "Vetsy" */;
 			buildPhases = (
 				75B3922815EFDE1600823962 /* Sources */,
 				75B3922915EFDE1600823962 /* Frameworks */,
@@ -165,9 +170,9 @@
 			);
 			dependencies = (
 			);
-			name = "FB Events";
+			name = Vetsy;
 			productName = "FB Events";
-			productReference = 75B3922C15EFDE1600823962 /* FB Events.app */;
+			productReference = 75B3922C15EFDE1600823962 /* Vetsy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +184,7 @@
 				CLASSPREFIX = FE;
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = 75B3922615EFDE1600823962 /* Build configuration list for PBXProject "FB Events" */;
+			buildConfigurationList = 75B3922615EFDE1600823962 /* Build configuration list for PBXProject "Vetsy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -191,7 +196,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75B3922B15EFDE1600823962 /* FB Events */,
+				75B3922B15EFDE1600823962 /* Vetsy */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +229,7 @@
 				75B3926215EFF42000823962 /* Event.m in Sources */,
 				75B3926615EFF48700823962 /* Venue.m in Sources */,
 				75BAD2DC15F09A2E00F226F1 /* FacebookObject.m in Sources */,
+				7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,14 +308,14 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FB Events/FB Events-Prefix.pch";
-				INFOPLIST_FILE = "FB Events/FB Events-Info.plist";
+				GCC_PREFIX_HEADER = "FB Events/Vetsy-Prefix.pch";
+				INFOPLIST_FILE = "FB Events/Vetsy-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vetsy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -322,14 +328,14 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FB Events/FB Events-Prefix.pch";
-				INFOPLIST_FILE = "FB Events/FB Events-Info.plist";
+				GCC_PREFIX_HEADER = "FB Events/Vetsy-Prefix.pch";
+				INFOPLIST_FILE = "FB Events/Vetsy-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Vetsy;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -337,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		75B3922615EFDE1600823962 /* Build configuration list for PBXProject "FB Events" */ = {
+		75B3922615EFDE1600823962 /* Build configuration list for PBXProject "Vetsy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75B3924815EFDE1600823962 /* Debug */,
@@ -346,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75B3924A15EFDE1600823962 /* Build configuration list for PBXNativeTarget "FB Events" */ = {
+		75B3924A15EFDE1600823962 /* Build configuration list for PBXNativeTarget "Vetsy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75B3924B15EFDE1600823962 /* Debug */,

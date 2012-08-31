@@ -1,6 +1,6 @@
 //
 //  Event.h
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -14,13 +14,7 @@
 #define kRSVPStatusAttending            @"attending"
 #define kRSVPStatusUnsure               @"unsure"
 
-#define kFacebookGraphURL               @"https://graph.facebook.com/"
-
-@interface Event : FacebookObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
-    BOOL loaded;
-    NSURLRequest *urlRequest;
-    NSURLConnection *urlConnection;
-    NSMutableData *receivedData;
+@interface Event : FacebookObject <FacebookObjectDelegate> {
 }
 
 @property (nonatomic, retain) NSString *eventID;
@@ -33,11 +27,5 @@
 @property (nonatomic, retain) NSString *privacy;
 @property (nonatomic, retain) NSString *updated_time;
 @property (nonatomic, retain) NSString *rsvp_status;
-
-// loading event properties
-@property (nonatomic, readonly) BOOL loaded;
-
-- (id)initWithID:(NSString *)evID;
-- (id)initFromJSONDictionary:(NSDictionary *)jsonDict;
 
 @end

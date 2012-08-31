@@ -1,6 +1,6 @@
 //
 //  Event.m
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -21,36 +21,12 @@
 @synthesize rsvp_status;
 @synthesize eventID;
 
-@synthesize loaded;
+#pragma mark Overriden Properties
 
-- (id)initWithID:(NSString *)evID
-{
-    self = [super init];
-    if (self) {
-        loaded = NO;
-        self.eventID = evID;
-        
-        // begin process of getting the event data
-        [self beginPopulatingEvent];
-    }
-    return self;
-}
-
-- (id)initFromJSONDictionary:(NSDictionary *)jsonDict
-{
-    self = [super init];
-    if (self) {
-        for (NSString *key in jsonDict) {
-            if ([self respondsToSelector:NSSelectorFromString(key)]) {
-                [self setValue:[jsonDict objectForKey:key] forKey:key];
-            }
-        }
-    }
-    return self;
-}
-
-- (void)populateProperties {
-    NSDictionary *dictionary = [receivedData yajl_JSON];
+- (void)populateObject:(NSData *)data {
+    [super populateObject:data];
+    
+    NSDictionary *dictionary = [data yajl_JSON];
     NSLog(@"event dictionary: %@", dictionary);
     
     for (NSString *key in dictionary) {
@@ -60,43 +36,6 @@
     }
     
     loaded = YES;
-}
-
-#pragma mark - Connection
-
-- (void)beginPopulatingEvent {
-    NSString *urlString = [kFacebookGraphURL stringByAppendingFormat:
-                           @"%@?access_token=%@",
-                           eventID, [[FESessionSingleton session] accessToken]];
-    
-    urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]
-                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                              timeoutInterval:30.0];
-    
-    urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    if (urlConnection) {
-        receivedData = [[NSMutableData data] retain];
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    if (connection == urlConnection) {
-        [receivedData appendData:data];
-    }
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    if (connection == urlConnection) {
-        [self populateProperties];
-        [self closeConnection];
-    }
-}
-
-- (void)closeConnection {
-    [urlConnection release];
-    urlConnection = nil;
-    [receivedData release];
-    receivedData = nil;
 }
 
 @end

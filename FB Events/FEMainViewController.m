@@ -1,6 +1,6 @@
 //
 //  FEMainViewController.m
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -35,6 +35,9 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    
+    
     if ([[FESessionSingleton sharedSession] eventsURL]) {
         // load events
         FEEventLoader *eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]

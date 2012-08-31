@@ -1,6 +1,6 @@
 //
 //  FESessionSingleton.h
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.

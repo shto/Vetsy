@@ -1,6 +1,6 @@
 //
 //  FEEventLoader.m
-//  FB Events
+//  Vetsy
 //
 //  Created by Andrei on 8/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -21,21 +21,11 @@
 }
 
 - (void)startGettingEvents {
-    urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:eventsURL]
-                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                              timeoutInterval:30.0];
-    
-    urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-    if (urlConnection) {
-        receivedData = [[NSMutableData data] retain];
-    } else {
-        // call delegate
-        [waitingDelegate failWithError:nil];
-    }
+    proxy = [[FEProxy alloc] initAndGetFromURL:[NSURL URLWithString:eventsURL] delegate:self];
 }
 
 // calculate events from data
-- (NSArray *)events {
+- (NSArray *)eventsFromData:(NSData *)receivedData {
     NSMutableArray *returnedArray = [NSMutableArray array];        
     NSDictionary *dictionary = [receivedData yajl_JSON];
 
@@ -49,28 +39,16 @@
     return returnedArray;
 }
 
-# pragma mark - Delegates for URL connection
+# pragma mark - FEProxy Delegates
 
-// failed with error
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+- (void)failedWithError:(NSError *)error {
     NSLog(@"Failed!");
     [waitingDelegate failWithError:error];
 }
 
-// received data
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    if (connection == urlConnection) {
-        [receivedData appendData:data];
-    }
-}
-
-// done! we got all the data
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    if (connection == urlConnection) {
-        if (waitingDelegate && [waitingDelegate respondsToSelector:@selector(eventsLoaded:)]) {
-            [waitingDelegate eventsLoaded:[self events]];
-            [urlConnection release];
-        }
+- (void)done:(NSData *)data {
+    if (waitingDelegate && [waitingDelegate respondsToSelector:@selector(eventsLoaded:)]) {
+        [waitingDelegate eventsLoaded:[self eventsFromData:data]];
     }
 }
 
