@@ -35,9 +35,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-    
-    
     if ([[FESessionSingleton sharedSession] eventsURL]) {
         // load events
         FEEventLoader *eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]
@@ -65,19 +62,19 @@
     labelNumberOfEvents.text = [NSString stringWithFormat:@"Number of events: %d", [events count]];
     
     for (Event *event in events) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-        NSDate *date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.start_time]];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-        NSInteger hourStart = [components hour];
-        
-        date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.end_time]];
-        components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-        NSInteger hourEnd = [components hour];
-        
-        NSLog(@"event name: %@\nevent start hour:%d\nevent end hour:%d\n",
-              event.name, hourStart, hourEnd);
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+//        NSDate *date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.start_time]];
+//        NSCalendar *calendar = [NSCalendar currentCalendar];
+//        NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+//        NSInteger hourStart = [components hour];
+//        
+//        date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.end_time]];
+//        components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
+//        NSInteger hourEnd = [components hour];
+//        
+//        NSLog(@"event name: %@\nevent start hour:%d\nevent end hour:%d\n",
+//              event.name, hourStart, hourEnd);
     }
 }
 

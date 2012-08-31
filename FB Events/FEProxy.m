@@ -16,6 +16,8 @@
 {
     self = [super init];
     if (self) {
+        NSLog(@"proxy initiated.");
+        
         callingDelegate = delegate;
         urlRequest = [NSURLRequest requestWithURL:url
                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -35,13 +37,14 @@
     if (connection == urlConnection) {
         if (callingDelegate && [callingDelegate respondsToSelector:@selector(failedWithError:)]) {
             [callingDelegate failedWithError:error];
-            [self closeConnection];
+            [self closeConnection:connection];
         }
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)receivedData {
     if (connection == urlConnection) {
+        NSLog(@"connection:did receive data:");
         [data appendData:receivedData];
     }
 }
@@ -50,14 +53,14 @@
     if (connection == urlConnection) {
         if (callingDelegate && [callingDelegate respondsToSelector:@selector(done:)]) {
             [callingDelegate done:data];
-            [self closeConnection];
+            [self closeConnection:connection];
         }
     }
 }
 
-- (void)closeConnection {
-    [urlConnection release];
-    urlConnection = nil;
+- (void)closeConnection:(NSURLConnection *)theConnection {
+    [theConnection release];
+    theConnection = nil;
     
     [data release];
     data = nil;
