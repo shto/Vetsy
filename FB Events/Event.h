@@ -8,12 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "Venue.h"
+#import "FacebookObject.h"
+#import "FESessionSingleton.h"
 
 #define kRSVPStatusAttending            @"attending"
 #define kRSVPStatusUnsure               @"unsure"
 
-@interface Event : NSObject
+#define kFacebookGraphURL               @"https://graph.facebook.com/"
 
+@interface Event : FacebookObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+    BOOL loaded;
+    NSURLRequest *urlRequest;
+    NSURLConnection *urlConnection;
+    NSMutableData *receivedData;
+}
+
+@property (nonatomic, retain) NSString *eventID;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) NSDate *start_time;
@@ -24,6 +34,10 @@
 @property (nonatomic, retain) NSString *updated_time;
 @property (nonatomic, retain) NSString *rsvp_status;
 
+// loading event properties
+@property (nonatomic, readonly) BOOL loaded;
+
+- (id)initWithID:(NSString *)evID;
 - (id)initFromJSONDictionary:(NSDictionary *)jsonDict;
 
 @end

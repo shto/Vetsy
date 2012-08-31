@@ -24,6 +24,7 @@
 		75B3926215EFF42000823962 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3926115EFF42000823962 /* Event.m */; };
 		75B3926615EFF48700823962 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B3926515EFF48700823962 /* Venue.m */; };
 		75B3926C15EFF75A00823962 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3926B15EFF75A00823962 /* YAJLiOS.framework */; };
+		75BAD2DC15F09A2E00F226F1 /* FacebookObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BAD2DB15F09A2E00F226F1 /* FacebookObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		75B3926415EFF48700823962 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
 		75B3926515EFF48700823962 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
 		75B3926B15EFF75A00823962 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJLiOS.framework; sourceTree = "<group>"; };
+		75BAD2DA15F09A2E00F226F1 /* FacebookObject.h */ = {isa = PBXFileReference; fileEncoding = 4; path = FacebookObject.h; sourceTree = "<group>"; };
+		75BAD2DB15F09A2E00F226F1 /* FacebookObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,8 @@
 				75B3926115EFF42000823962 /* Event.m */,
 				75B3926415EFF48700823962 /* Venue.h */,
 				75B3926515EFF48700823962 /* Venue.m */,
+				75BAD2DA15F09A2E00F226F1 /* FacebookObject.h */,
+				75BAD2DB15F09A2E00F226F1 /* FacebookObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				75B3925F15EFF40900823962 /* FEEventLoader.m in Sources */,
 				75B3926215EFF42000823962 /* Event.m in Sources */,
 				75B3926615EFF48700823962 /* Venue.m in Sources */,
+				75BAD2DC15F09A2E00F226F1 /* FacebookObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

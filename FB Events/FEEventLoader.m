@@ -38,11 +38,10 @@
 - (NSArray *)events {
     NSMutableArray *returnedArray = [NSMutableArray array];        
     NSDictionary *dictionary = [receivedData yajl_JSON];
-    NSLog(@"events dictionary: %@", dictionary);
 
     NSArray *allEvents = [dictionary objectForKey:@"data"];
     for (NSDictionary *eventDict in allEvents) {
-        Event *event = [[Event alloc] initFromJSONDictionary:eventDict];
+        Event *event = [[Event alloc] initWithID:[eventDict objectForKey:@"id"]];
         [returnedArray addObject:event];
         [event release];
     }
@@ -70,6 +69,7 @@
     if (connection == urlConnection) {
         if (waitingDelegate && [waitingDelegate respondsToSelector:@selector(eventsLoaded:)]) {
             [waitingDelegate eventsLoaded:[self events]];
+            [urlConnection release];
         }
     }
 }
