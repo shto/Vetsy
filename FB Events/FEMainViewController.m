@@ -73,6 +73,17 @@
     [allEventsViewController release];
 }
 
+- (IBAction)syncNow:(id)sender {
+    // first, get the stored set of event IDs + last updated
+    
+    // then get the set of Facebook IDs we have now + last updated
+    
+    // make a diff between the 2 and figure out which ones should be
+    // taken again from Facebook - get back a set/array
+    
+    // save that array to Calendar
+}
+
 #pragma mark - FEEventLoaderDelegate
 
 - (void)eventsLoaded:(NSArray *)events {
