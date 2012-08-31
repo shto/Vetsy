@@ -22,8 +22,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        allEvents = nil;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [allEvents release];
+    [super dealloc];
 }
 
 - (void)viewDidLoad
@@ -35,7 +42,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if ([[FESessionSingleton sharedSession] eventsURL]) {
+    if ([[FESessionSingleton sharedSession] eventsURL] && !allEvents) {
         // load events
         FEEventLoader *eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]
                                                                   andDelegate:self];
@@ -56,9 +63,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - IBActions
+
+- (IBAction)allEvents:(id)sender {
+    FEEventsTableViewController *allEventsViewController = [[FEEventsTableViewController alloc] initWithNibName:@"FEEventsTableViewController" 
+                                                                                                         bundle:nil];
+    allEventsViewController.events = allEvents;
+    [self.navigationController pushViewController:allEventsViewController animated:YES];
+    [allEventsViewController release];
+}
+
 #pragma mark - FEEventLoaderDelegate
 
 - (void)eventsLoaded:(NSArray *)events {
+    allEvents = [events retain];
     viewLoadingEvents.hidden = YES;
     labelNumberOfEvents.text = [NSString stringWithFormat:@"Number of events: %d", [events count]];
     

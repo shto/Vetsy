@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "FEEventLoader.h"
 #import "FESessionSingleton.h"
+#import "FEEventsTableViewController.h"
 
 @interface FEMainViewController : UIViewController <FEEventLoaderDelegate> {
-    
+    NSArray *allEvents;
 }
 
 @property (nonatomic, assign) IBOutlet UIView *viewLoadingEvents;

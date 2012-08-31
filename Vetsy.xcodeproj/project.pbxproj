@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7533FF6C15F0E62300F94F49 /* FEProxy.m */; };
+		75955B1615F10CDA001AC716 /* FEEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */; };
+		75955B1715F10CDA001AC716 /* FEEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */; };
 		75B3923115EFDE1600823962 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923015EFDE1600823962 /* UIKit.framework */; };
 		75B3923315EFDE1600823962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923215EFDE1600823962 /* Foundation.framework */; };
 		75B3923515EFDE1600823962 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923415EFDE1600823962 /* CoreGraphics.framework */; };
@@ -31,14 +33,17 @@
 /* Begin PBXFileReference section */
 		7533FF6B15F0E62300F94F49 /* FEProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEProxy.h; sourceTree = "<group>"; };
 		7533FF6C15F0E62300F94F49 /* FEProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEProxy.m; sourceTree = "<group>"; };
+		75955B1315F10CDA001AC716 /* FEEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEEventsTableViewController.h; sourceTree = "<group>"; };
+		75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEEventsTableViewController.m; sourceTree = "<group>"; };
+		75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FEEventsTableViewController.xib; sourceTree = "<group>"; };
 		75B3922C15EFDE1600823962 /* Vetsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vetsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B3923015EFDE1600823962 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75B3923215EFDE1600823962 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		75B3923415EFDE1600823962 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		75B3923815EFDE1600823962 /* Vetsy-Info.plist */ = {isa = PBXFileReference; path = "Vetsy-Info.plist"; sourceTree = "<group>"; };
+		75B3923815EFDE1600823962 /* Vetsy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Vetsy-Info.plist"; sourceTree = "<group>"; };
 		75B3923A15EFDE1600823962 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75B3923C15EFDE1600823962 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		75B3923E15EFDE1600823962 /* Vetsy-Prefix.pch */ = {isa = PBXFileReference; path = "Vetsy-Prefix.pch"; sourceTree = "<group>"; };
+		75B3923E15EFDE1600823962 /* Vetsy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vetsy-Prefix.pch"; sourceTree = "<group>"; };
 		75B3923F15EFDE1600823962 /* FEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEAppDelegate.h; sourceTree = "<group>"; };
 		75B3924015EFDE1600823962 /* FEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEAppDelegate.m; sourceTree = "<group>"; };
 		75B3924215EFDE1600823962 /* FELoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FELoginViewController.h; sourceTree = "<group>"; };
@@ -127,6 +132,9 @@
 				75B3925E15EFF40900823962 /* FEEventLoader.m */,
 				7533FF6B15F0E62300F94F49 /* FEProxy.h */,
 				7533FF6C15F0E62300F94F49 /* FEProxy.m */,
+				75955B1315F10CDA001AC716 /* FEEventsTableViewController.h */,
+				75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */,
+				75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */,
 			);
 			path = "FB Events";
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				75B3924715EFDE1600823962 /* FELoginViewController.xib in Resources */,
 				75B3925415EFE05600823962 /* FacebookSDKResources.bundle in Resources */,
 				75B3925C15EFF18900823962 /* FEMainViewController.xib in Resources */,
+				75955B1715F10CDA001AC716 /* FEEventsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +239,7 @@
 				75B3926615EFF48700823962 /* Venue.m in Sources */,
 				75BAD2DC15F09A2E00F226F1 /* FacebookObject.m in Sources */,
 				7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */,
+				75955B1615F10CDA001AC716 /* FEEventsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
