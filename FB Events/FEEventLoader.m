@@ -14,10 +14,17 @@
 {
     self = [super init];
     if (self) {
-        eventsURL = url;
-        waitingDelegate = delegate;
+        eventsURL = [url retain];
+        waitingDelegate = [delegate retain];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [eventsURL release];
+    [waitingDelegate release];
+    [super dealloc];
 }
 
 - (void)startGettingEvents {

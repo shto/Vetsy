@@ -40,6 +40,7 @@
         FEEventLoader *eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]
                                                                   andDelegate:self];
         [eventLoader startGettingEvents];
+        [eventLoader release];
     }
 }
 

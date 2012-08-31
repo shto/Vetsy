@@ -18,7 +18,7 @@
     if (self) {
         NSLog(@"proxy initiated.");
         
-        callingDelegate = delegate;
+        self.callingDelegate = delegate;
         urlRequest = [NSURLRequest requestWithURL:url
                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
                                   timeoutInterval:30.0];
@@ -29,6 +29,12 @@
         }
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [callingDelegate release];
+    [super dealloc];
 }
 
 #pragma mark - Connection Delegates

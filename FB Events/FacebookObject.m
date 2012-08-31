@@ -17,10 +17,16 @@
     self = [super init];
     if (self) {
         loaded = NO;
-        objectFacebookGraphID = objectID;
+        objectFacebookGraphID = [objectID retain];
         [self beginPopulatingObject];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [objectFacebookGraphID release];
+    [super dealloc];
 }
 
 - (void)beginPopulatingObject {
@@ -33,7 +39,7 @@
 }
 
 - (void)populateObject:(NSData *)data {
-    // nothing to do here. should be overriden in children classes
+    // nothing to do here (yet). should be overriden in children classes
 }
 
 #pragma mark - Proxy Delegate
