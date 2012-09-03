@@ -10,12 +10,15 @@
 
 @implementation FEEventLoader
 
+@synthesize numberOfLoadedEvents;
+
 - (id)initWithEventsURL:(NSString *)url andDelegate:(id<FEEventLoaderDelegate>)delegate
 {
     self = [super init];
     if (self) {
         eventsURL = [url retain];
         waitingDelegate = [delegate retain];
+        self.numberOfLoadedEvents = 0;
     }
     return self;
 }
@@ -39,6 +42,7 @@
     NSArray *allEvents = [dictionary objectForKey:@"data"];
     for (NSDictionary *eventDict in allEvents) {
         Event *event = [[Event alloc] initWithID:[eventDict objectForKey:@"id"]];
+        [event setLoadedDelegate:self];
         [returnedArray addObject:event];
         [event release];
     }
@@ -57,6 +61,12 @@
     if (waitingDelegate && [waitingDelegate respondsToSelector:@selector(eventsLoaded:)]) {
         [waitingDelegate eventsLoaded:[self eventsFromData:data]];
     }
+}
+
+#pragma mark - FacebookObject Loaded Delegate
+
+- (void)loadComplete {
+    self.numberOfLoadedEvents++;
 }
 
 @end

@@ -23,6 +23,10 @@
     return self;
 }
 
+- (void)setLoadedDelegate:(id)delegate {
+    waitingForLoadedDelegate = delegate;
+}
+
 - (void)dealloc
 {
     [objectFacebookGraphID release];
@@ -51,6 +55,10 @@
 - (void)done:(NSData *)data {
     [proxy release]; proxy = nil;
     [self populateObject:data];
+    
+    if (waitingForLoadedDelegate && [waitingForLoadedDelegate respondsToSelector:@selector(loadComplete)]) {
+        [waitingForLoadedDelegate loadComplete];
+    }
 }
 
 #pragma mark - Helper Methods

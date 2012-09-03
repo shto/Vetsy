@@ -14,8 +14,9 @@
 
 @implementation FEMainViewController
 
-@synthesize labelNumberOfEvents;
+@synthesize labelInformativeText;
 @synthesize viewLoadingEvents;
+@synthesize labelLoadingEvents;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +34,26 @@
     [super dealloc];
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath 
+                      ofObject:(id)object 
+                        change:(NSDictionary *)change 
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:kNumberOfLoadedEvents]) {
+        NSInteger newValue = [[change objectForKey:NSKeyValueChangeNewKey] intValue];
+        if (newValue == [allEvents count]) {
+            labelInformativeText.text = @"Loaded all events. You can now sync.";
+            viewLoadingEvents.hidden = YES;
+
+            [eventLoader removeObserver:self forKeyPath:kNumberOfLoadedEvents];
+            [eventLoader release];
+        } else {
+            labelLoadingEvents.text = [NSString stringWithFormat:@"Loading %d/%d events...",
+                                        eventLoader.numberOfLoadedEvents, [allEvents count]];
+        }
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -43,12 +64,22 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([[FESessionSingleton sharedSession] eventsURL] && !allEvents) {
-        // load events
-        FEEventLoader *eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]
-                                                                  andDelegate:self];
-        [eventLoader startGettingEvents];
-        [eventLoader release];
+        [self getEvents];
     }
+}
+
+- (void)getEvents {
+    // load events
+    eventLoader = [[FEEventLoader alloc] initWithEventsURL:[[FESessionSingleton sharedSession] eventsURL]
+                                                              andDelegate:self];
+    
+    // add observer for changes to the number of loaded events counter
+    [eventLoader addObserver:self
+                  forKeyPath:kNumberOfLoadedEvents
+                     options:NSKeyValueObservingOptionNew 
+                     context:NULL];
+    
+    [eventLoader startGettingEvents];
 }
 
 - (void)viewDidUnload
@@ -73,17 +104,18 @@
     [allEventsViewController release];
 }
 
-- (IBAction)syncNow:(id)sender {
+- (IBAction)syncNow:(id)sender {    
     // test: add 1 event
     Event *anEvent = [allEvents objectAtIndex:0];
     NSError *error = nil;
+    BOOL success = YES;
     if (anEvent.loaded) {
-        [FEEventHelper addEventToCalendar:anEvent error:&error];
+        success = [FEEventHelper addEventToCalendar:anEvent error:&error];
     } else {
         NSLog(@"event not loaded yet. try again in a second.");
     }
     
-    if (error) {
+    if (!success) {
         NSLog(@"There is a problem: %@", [error localizedDescription]);
     }
     
@@ -101,24 +133,6 @@
 
 - (void)eventsLoaded:(NSArray *)events {
     allEvents = [events retain];
-    viewLoadingEvents.hidden = YES;
-    labelNumberOfEvents.text = [NSString stringWithFormat:@"Number of events: %d", [events count]];
-    
-    for (Event *event in events) {
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-//        NSDate *date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.start_time]];
-//        NSCalendar *calendar = [NSCalendar currentCalendar];
-//        NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-//        NSInteger hourStart = [components hour];
-//        
-//        date = [dateFormatter dateFromString:[NSString stringWithFormat:@"%@", event.end_time]];
-//        components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:date];
-//        NSInteger hourEnd = [components hour];
-//        
-//        NSLog(@"event name: %@\nevent start hour:%d\nevent end hour:%d\n",
-//              event.name, hourStart, hourEnd);
-    }
 }
 
 @end

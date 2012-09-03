@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "FB Events/FEMainViewController.m"
-         timestampString = "368359287.354165"
+         timestampString = "368398589.470595"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "113"
+         endingLineNumber = "113"
          landmarkName = "-syncNow:"
          landmarkType = "5">
       </FileBreakpoint>

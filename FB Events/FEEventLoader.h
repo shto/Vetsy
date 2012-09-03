@@ -20,11 +20,15 @@
 
 @end
 
-@interface FEEventLoader : NSObject <FEProxyProtocol> {
+@interface FEEventLoader : NSObject <FEProxyProtocol, FacebookObjectLoadedCompleteDelegate> {
     NSString *eventsURL;
     FEProxy *proxy;
     id<FEEventLoaderDelegate> waitingDelegate;
+    
+    NSInteger numberOfLoadedEvents;
 }
+
+@property (nonatomic, readwrite) NSInteger numberOfLoadedEvents;
 
 - (id)initWithEventsURL:(NSString *)url andDelegate:(id<FEEventLoaderDelegate>)delegate;
 - (void)startGettingEvents;

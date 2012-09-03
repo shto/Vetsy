@@ -20,11 +20,19 @@
 
 @end
 
+@protocol FacebookObjectLoadedCompleteDelegate <NSObject>
+
+- (void)loadComplete;
+
+@end
+
 @interface FacebookObject : NSObject <FEProxyProtocol, FacebookObjectDelegate> {
     NSString *objectFacebookGraphID;
     BOOL loaded;
     
     FEProxy *proxy;
+    
+    id<FacebookObjectLoadedCompleteDelegate> waitingForLoadedDelegate;
 }
 
 @property (nonatomic, readonly) NSString *objectFacebookGraphID;
@@ -32,5 +40,6 @@
 
 - (id)initWithID:(NSString *)objectID;
 - (NSDate *)dateFromString:(NSString *)stringDate;
+- (void)setLoadedDelegate:(id)delegate;
 
 @end

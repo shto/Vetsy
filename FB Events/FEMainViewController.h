@@ -12,11 +12,15 @@
 #import "FESessionSingleton.h"
 #import "FEEventsTableViewController.h"
 
+#define kNumberOfLoadedEvents           @"numberOfLoadedEvents"
+
 @interface FEMainViewController : UIViewController <FEEventLoaderDelegate> {
     NSArray *allEvents;
+    FEEventLoader *eventLoader;
 }
 
 @property (nonatomic, assign) IBOutlet UIView *viewLoadingEvents;
-@property (nonatomic, assign) IBOutlet UILabel *labelNumberOfEvents;
+@property (nonatomic, assign) IBOutlet UILabel *labelInformativeText;
+@property (nonatomic, assign) IBOutlet UILabel *labelLoadingEvents;
 
 @end

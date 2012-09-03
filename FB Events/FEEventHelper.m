@@ -10,7 +10,8 @@
 
 @implementation FEEventHelper
 
-+ (BOOL)addEventToCalendar:(Event *)event error:(NSError **)error {
+// returns the event's identifier in the calendar store; nil if an error has occured
++ (NSString *)addEventToCalendar:(Event *)event error:(NSError **)error {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     EKEvent *ekEvent = [EKEvent eventWithEventStore:eventStore];
     
@@ -24,11 +25,11 @@
     [eventStore saveEvent:ekEvent span:EKSpanThisEvent error:error];
     [eventStore release];
     
-    if (error) {
-        return NO;
+    if (*error) {
+        return nil;
     }
     
-    return YES;
+    return ekEvent.eventIdentifier;
 }
 
 @end
