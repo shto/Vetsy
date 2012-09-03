@@ -12,6 +12,6 @@
 
 @interface FEEventHelper : NSObject
 
-+ (BOOL)addEventToCalendar:(Event *)event error:(NSError **)error;
++ (NSString *)addEventToCalendar:(Event *)event error:(NSError **)error;
 
 @end

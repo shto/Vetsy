@@ -108,14 +108,15 @@
     // test: add 1 event
     Event *anEvent = [allEvents objectAtIndex:0];
     NSError *error = nil;
-    BOOL success = YES;
+    NSString *eventID;
+    
     if (anEvent.loaded) {
-        success = [FEEventHelper addEventToCalendar:anEvent error:&error];
+        eventID = [FEEventHelper addEventToCalendar:anEvent error:&error];
     } else {
         NSLog(@"event not loaded yet. try again in a second.");
     }
     
-    if (!success) {
+    if (!eventID) {
         NSLog(@"There is a problem: %@", [error localizedDescription]);
     }
     
