@@ -74,6 +74,19 @@
 }
 
 - (IBAction)syncNow:(id)sender {
+    // test: add 1 event
+    Event *anEvent = [allEvents objectAtIndex:0];
+    NSError *error = nil;
+    if (anEvent.loaded) {
+        [FEEventHelper addEventToCalendar:anEvent error:&error];
+    } else {
+        NSLog(@"event not loaded yet. try again in a second.");
+    }
+    
+    if (error) {
+        NSLog(@"There is a problem: %@", [error localizedDescription]);
+    }
+    
     // first, get the stored set of event IDs + last updated
     
     // then get the set of Facebook IDs we have now + last updated

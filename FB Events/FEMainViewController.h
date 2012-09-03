@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FEEventLoader.h"
+#import "FEEventHelper.h"
 #import "FESessionSingleton.h"
 #import "FEEventsTableViewController.h"
 

@@ -12,6 +12,7 @@
 #import "FESessionSingleton.h"
 
 #define kFacebookGraphURL               @"https://graph.facebook.com/"
+#define kDateFormat                     @"yyyy-MM-dd'T'HH:mm:ss"
 
 @protocol FacebookObjectDelegate <NSObject>
 
@@ -30,5 +31,6 @@
 @property (nonatomic, readonly) BOOL loaded;
 
 - (id)initWithID:(NSString *)objectID;
+- (NSDate *)dateFromString:(NSString *)stringDate;
 
 @end

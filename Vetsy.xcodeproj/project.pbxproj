@@ -10,6 +10,8 @@
 		7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7533FF6C15F0E62300F94F49 /* FEProxy.m */; };
 		75955B1615F10CDA001AC716 /* FEEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */; };
 		75955B1715F10CDA001AC716 /* FEEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */; };
+		75A0524715F4B4790067B279 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A0524615F4B4790067B279 /* EventKit.framework */; };
+		75A0524B15F4B4CC0067B279 /* FEEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A0524A15F4B4CC0067B279 /* FEEventHelper.m */; };
 		75B3923115EFDE1600823962 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923015EFDE1600823962 /* UIKit.framework */; };
 		75B3923315EFDE1600823962 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923215EFDE1600823962 /* Foundation.framework */; };
 		75B3923515EFDE1600823962 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B3923415EFDE1600823962 /* CoreGraphics.framework */; };
@@ -36,6 +38,9 @@
 		75955B1315F10CDA001AC716 /* FEEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEEventsTableViewController.h; sourceTree = "<group>"; };
 		75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEEventsTableViewController.m; sourceTree = "<group>"; };
 		75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FEEventsTableViewController.xib; sourceTree = "<group>"; };
+		75A0524615F4B4790067B279 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		75A0524915F4B4CC0067B279 /* FEEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEEventHelper.h; sourceTree = "<group>"; };
+		75A0524A15F4B4CC0067B279 /* FEEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEEventHelper.m; sourceTree = "<group>"; };
 		75B3922C15EFDE1600823962 /* Vetsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vetsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B3923015EFDE1600823962 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		75B3923215EFDE1600823962 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A0524715F4B4790067B279 /* EventKit.framework in Frameworks */,
 				75B3923115EFDE1600823962 /* UIKit.framework in Frameworks */,
 				75B3923315EFDE1600823962 /* Foundation.framework in Frameworks */,
 				75B3923515EFDE1600823962 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +109,7 @@
 		75B3922F15EFDE1600823962 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75A0524615F4B4790067B279 /* EventKit.framework */,
 				75B3926B15EFF75A00823962 /* YAJLiOS.framework */,
 				75B3925315EFE05600823962 /* FacebookSDKResources.bundle */,
 				75B3925115EFE03900823962 /* FacebookSDK.framework */,
@@ -135,6 +142,8 @@
 				75955B1315F10CDA001AC716 /* FEEventsTableViewController.h */,
 				75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */,
 				75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */,
+				75A0524915F4B4CC0067B279 /* FEEventHelper.h */,
+				75A0524A15F4B4CC0067B279 /* FEEventHelper.m */,
 			);
 			path = "FB Events";
 			sourceTree = "<group>";
@@ -240,6 +249,7 @@
 				75BAD2DC15F09A2E00F226F1 /* FacebookObject.m in Sources */,
 				7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */,
 				75955B1615F10CDA001AC716 /* FEEventsTableViewController.m in Sources */,
+				75A0524B15F4B4CC0067B279 /* FEEventHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,12 +11,9 @@
 @implementation Event
 
 @synthesize description;
-@synthesize end_time;
 @synthesize location;
 @synthesize name;
 @synthesize privacy;
-@synthesize start_time;
-@synthesize updated_time;
 @synthesize venue;
 @synthesize rsvp_status;
 @synthesize eventID;
@@ -36,6 +33,62 @@
     }
     
     loaded = YES;
+}
+
+- (void)dealloc
+{
+    [description release];
+    [location release];
+    [name release];
+    [privacy release];
+    [venue release];
+    [rsvp_status release];
+    [eventID release];
+    
+    [start_time release];
+    [end_time release];
+    [update_time release];
+    [super dealloc];
+}
+
+#pragma mark - Setters and Getters
+
+// we set a string in the different setters
+- (void)setEnd_time:(NSString *)endTime {
+    if (end_time) {
+        [end_time release];
+    }
+    
+    end_time = [endTime retain];
+}
+
+- (void)setStart_time:(NSString *)startTime {
+    if (start_time) {
+        [start_time release];
+    }
+    
+    start_time = [startTime retain];
+}
+
+- (void)setUpdate_time:(NSString *)updateTime {
+    if (update_time) {
+        [update_time release];
+    }
+    
+    update_time = [updateTime retain];
+}
+
+// we get back a date from the getters
+- (NSDate *)end_time {
+    return [self dateFromString:end_time];
+}
+
+- (NSDate *)start_time {
+    return [self dateFromString:start_time];
+}
+
+- (NSDate *)update_time {
+    return [self dateFromString:update_time];
 }
 
 @end
