@@ -104,30 +104,15 @@
     [allEventsViewController release];
 }
 
+-(IBAction)settings:(id)sender {
+    FESettingsViewController *settingsViewController = [[FESettingsViewController alloc] initWithNibName:@"FESettingsViewController"
+                                                                                                  bundle:nil];
+    [self.navigationController pushViewController:settingsViewController animated:YES];
+    [settingsViewController release];
+}
+
 - (IBAction)syncNow:(id)sender {    
-    // test: add 1 event
-    Event *anEvent = [allEvents objectAtIndex:0];
-    NSError *error = nil;
-    NSString *eventID;
-    
-    if (anEvent.loaded) {
-        eventID = [FEEventHelper addEventToCalendar:anEvent error:&error];
-    } else {
-        NSLog(@"event not loaded yet. try again in a second.");
-    }
-    
-    if (!eventID) {
-        NSLog(@"There is a problem: %@", [error localizedDescription]);
-    }
-    
-    // first, get the stored set of event IDs + last updated
-    
-    // then get the set of Facebook IDs we have now + last updated
-    
-    // make a diff between the 2 and figure out which ones should be
-    // taken again from Facebook - get back a set/array
-    
-    // save that array to Calendar
+    [FEEventHelper addEvents:allEvents];        
 }
 
 #pragma mark - FEEventLoaderDelegate

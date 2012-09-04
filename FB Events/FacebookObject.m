@@ -64,7 +64,7 @@
 #pragma mark - Helper Methods
 
 // convenience method for turning a string into a date (strings common in fb event objects)
-- (NSDate *)dateFromString:(NSString *)stringDate {
++ (NSDate *)dateFromString:(NSString *)stringDate {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:kDateFormat];
     NSDate *dateFromString = [dateFormatter dateFromString:stringDate];

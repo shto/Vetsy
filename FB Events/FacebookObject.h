@@ -39,7 +39,7 @@
 @property (nonatomic, readonly) BOOL loaded;
 
 - (id)initWithID:(NSString *)objectID;
-- (NSDate *)dateFromString:(NSString *)stringDate;
++ (NSDate *)dateFromString:(NSString *)stringDate;
 - (void)setLoadedDelegate:(id)delegate;
 
 @end

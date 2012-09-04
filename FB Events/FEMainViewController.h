@@ -11,6 +11,7 @@
 #import "FEEventHelper.h"
 #import "FESessionSingleton.h"
 #import "FEEventsTableViewController.h"
+#import "FESettingsViewController.h"
 
 #define kNumberOfLoadedEvents           @"numberOfLoadedEvents"
 

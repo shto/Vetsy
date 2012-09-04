@@ -41,10 +41,16 @@
 
     NSArray *allEvents = [dictionary objectForKey:@"data"];
     for (NSDictionary *eventDict in allEvents) {
-        Event *event = [[Event alloc] initWithID:[eventDict objectForKey:@"id"]];
-        [event setLoadedDelegate:self];
-        [returnedArray addObject:event];
-        [event release];
+        // only get events from now onwards
+        NSLog(@"event start date: %@", [eventDict objectForKey:@"start_time"]);
+        if ([[FacebookObject dateFromString:[eventDict objectForKey:@"start_time"]] 
+                                    compare:[NSDate date]] == NSOrderedDescending) 
+        {
+            Event *event = [[Event alloc] initWithID:[eventDict objectForKey:@"id"]];
+            [event setLoadedDelegate:self];
+            [returnedArray addObject:event];
+            [event release];
+        }        
     }
     
     return returnedArray;

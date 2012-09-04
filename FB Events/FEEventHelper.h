@@ -10,8 +10,11 @@
 #import <EventKit/EventKit.h>
 #import "Event.h"
 
+#define kNSUserDefaults_SyncedEventsIDsKey          @"syncedEvents"
+
 @interface FEEventHelper : NSObject
 
-+ (NSString *)addEventToCalendar:(Event *)event error:(NSError **)error;
++ (BOOL)addEvents:(NSArray *)events;
++ (BOOL)removeSyncedEvents:(NSError **)error;
 
 @end

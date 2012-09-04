@@ -26,6 +26,8 @@
     NSDictionary *dictionary = [data yajl_JSON];
     NSLog(@"event dictionary: %@", dictionary);
     
+    self.eventID = [dictionary valueForKey:@"id"];
+    
     for (NSString *key in dictionary) {
         if ([self respondsToSelector:NSSelectorFromString(key)]) {
             [self setValue:[dictionary valueForKey:key] forKey:key];
@@ -80,15 +82,15 @@
 
 // we get back a date from the getters
 - (NSDate *)end_time {
-    return [self dateFromString:end_time];
+    return [FacebookObject dateFromString:end_time];
 }
 
 - (NSDate *)start_time {
-    return [self dateFromString:start_time];
+    return [FacebookObject dateFromString:start_time];
 }
 
 - (NSDate *)update_time {
-    return [self dateFromString:update_time];
+    return [FacebookObject dateFromString:update_time];
 }
 
 @end
