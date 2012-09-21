@@ -24,10 +24,13 @@
     [super populateObject:data];
     
     NSDictionary *dictionary = [data yajl_JSON];
-    NSLog(@"event dictionary: %@", dictionary);
+    if (dictionary) {
+        NSLog(@"event dictionary received");
+    } else {
+        return;
+    }
     
     self.eventID = [dictionary valueForKey:@"id"];
-    
     for (NSString *key in dictionary) {
         if ([self respondsToSelector:NSSelectorFromString(key)]) {
             [self setValue:[dictionary valueForKey:key] forKey:key];

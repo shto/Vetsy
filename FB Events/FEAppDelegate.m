@@ -87,7 +87,6 @@
     
     // get the facebook session
     sharedSession = [FESessionSingleton session];
-    
     FEMainViewController *mainViewController = [[FEMainViewController alloc] initWithNibName:@"FEMainViewController"
                                                                                       bundle:nil];
     UINavigationController *mainNavController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
@@ -100,8 +99,9 @@
     
     if (!sharedSession.accessToken) {
         // show login screen
-        FELoginViewController *loginViewController = [[FELoginViewController alloc] initWithNibName:@"FELoginViewController" 
-                                                                                             bundle:nil];
+        FELoginViewController *loginViewController = [[FELoginViewController alloc] 
+                                                      initWithNibName:@"FELoginViewController"
+                                                      bundle:nil];
         [self.window.rootViewController presentModalViewController:loginViewController animated:YES];
         [loginViewController release];
     }

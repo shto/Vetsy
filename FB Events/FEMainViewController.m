@@ -42,7 +42,7 @@
     if ([keyPath isEqualToString:kNumberOfLoadedEvents]) {
         NSInteger newValue = [[change objectForKey:NSKeyValueChangeNewKey] intValue];
         if (newValue == [allEvents count]) {
-            labelInformativeText.text = @"Loaded all events. You can now sync.";
+            labelInformativeText.text = @"All events are loaded. You can now sync.";
             viewLoadingEvents.hidden = YES;
 
             [eventLoader removeObserver:self forKeyPath:kNumberOfLoadedEvents];
@@ -111,8 +111,16 @@
     [settingsViewController release];
 }
 
-- (IBAction)syncNow:(id)sender {    
-    [FEEventHelper addEvents:allEvents];        
+- (IBAction)syncNow:(id)sender {  
+    NSError *error = nil;
+    if (![FEEventHelper removeSyncedEvents:&error]) {
+        NSLog(@"Could not correctly remove all events.");
+    }
+    
+    [viewLoadingEvents setHidden:NO];
+    // start new thread here!
+    [FEEventHelper addEvents:allEvents];
+    [viewLoadingEvents setHidden:YES];
 }
 
 #pragma mark - FEEventLoaderDelegate
