@@ -10,6 +10,7 @@
 		7533FF6D15F0E62300F94F49 /* FEProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7533FF6C15F0E62300F94F49 /* FEProxy.m */; };
 		7552A7AC15F6473800A2F7CC /* FESettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7552A7AA15F6473800A2F7CC /* FESettingsViewController.m */; };
 		7552A7AD15F6473800A2F7CC /* FESettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7552A7AB15F6473800A2F7CC /* FESettingsViewController.xib */; };
+		75532C6D160CA9D20022110B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75532C6C160CA9D20022110B /* README.md */; };
 		75955B1615F10CDA001AC716 /* FEEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */; };
 		75955B1715F10CDA001AC716 /* FEEventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */; };
 		75A0524715F4B4790067B279 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A0524615F4B4790067B279 /* EventKit.framework */; };
@@ -40,6 +41,7 @@
 		7552A7A915F6473800A2F7CC /* FESettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FESettingsViewController.h; sourceTree = "<group>"; };
 		7552A7AA15F6473800A2F7CC /* FESettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FESettingsViewController.m; sourceTree = "<group>"; };
 		7552A7AB15F6473800A2F7CC /* FESettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FESettingsViewController.xib; sourceTree = "<group>"; };
+		75532C6C160CA9D20022110B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		75955B1315F10CDA001AC716 /* FEEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEEventsTableViewController.h; sourceTree = "<group>"; };
 		75955B1415F10CDA001AC716 /* FEEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEEventsTableViewController.m; sourceTree = "<group>"; };
 		75955B1515F10CDA001AC716 /* FEEventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FEEventsTableViewController.xib; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		75B3922115EFDE1600823962 = {
 			isa = PBXGroup;
 			children = (
+				75532C6C160CA9D20022110B /* README.md */,
 				75B3923615EFDE1600823962 /* FB Events */,
 				75B3922F15EFDE1600823962 /* Frameworks */,
 				75B3922D15EFDE1600823962 /* Products */,
@@ -261,6 +264,7 @@
 				75B3925C15EFF18900823962 /* FEMainViewController.xib in Resources */,
 				75955B1715F10CDA001AC716 /* FEEventsTableViewController.xib in Resources */,
 				7552A7AD15F6473800A2F7CC /* FESettingsViewController.xib in Resources */,
+				75532C6D160CA9D20022110B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
